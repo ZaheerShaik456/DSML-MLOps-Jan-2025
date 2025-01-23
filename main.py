@@ -36,3 +36,28 @@ def merge(left, right):
     return merged
 
 print merge_sort([38, 27, 43, 3, 9, 82, 10])  # Output: [3, 9, 10, 27, 38, 43, 82]
+
+def insertion_sort(arr):
+    # Traverse from the second element to the end of the array
+    for i in range(1, len(arr)):
+        # Store the current element to be positioned
+        key = arr[i]
+        j = i - 1
+
+        # Move elements of arr[0..i-1] that are greater than the key
+        # to one position ahead of their current position
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+
+        # Place the key in its correct position
+        arr[j + 1] = key
+
+# Example usage
+if __name__ == "__main__":
+    data = [12, 11, 13, 5, 6]
+    print("Original array:", data)
+    insertion_sort(data)
+    print("Sorted array:", data)
+
+    print insertion_sort([38, 27, 43, 3, 9, 82, 10])  # Output: [3, 9, 10, 27, 38, 43, 82]
